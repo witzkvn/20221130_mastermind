@@ -13,11 +13,11 @@ function App() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-yellow-600 to-gray-900 p-4 text-white text-center">
       <h1 className="text-3xl text-center font-bold mb-4">Super Master Mind</h1>
-      <p className="mb-12">
+      <p>
         Vous devrez retrouver une combinaison aléatoire de 5 couleurs en 12
         tours maximum !
       </p>
-      <p>Bonne chance 😉</p>
+      <p className="mb-12">Bonne chance 😉</p>
       {isStarted ? (
         <Game />
       ) : (
