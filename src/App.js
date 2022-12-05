@@ -17,7 +17,7 @@ function App() {
         Vous devrez retrouver une combinaison aléatoire de 5 couleurs en 12
         tours maximum !
       </p>
-      <p>(Sauf toi Marie, arrête de gagner 😡)</p>
+      <p>Bonne chance 😉</p>
       {isStarted ? (
         <Game />
       ) : (
