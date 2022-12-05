@@ -47,7 +47,7 @@ const ColorButton = ({ getColorValue, buttonIndex }) => {
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth={1.5}
-          stroke="black"
+          stroke="white"
           className="w-10 h-10"
         >
           <path
@@ -59,7 +59,7 @@ const ColorButton = ({ getColorValue, buttonIndex }) => {
       </div>
 
       <div
-        className={`h-12 w-12 rounded-full border border-black  ${
+        className={`h-12 w-12 rounded-full  ${
           selectedColor ? selectedColor.color : "bg-red-600"
         }`}
       ></div>
@@ -70,7 +70,7 @@ const ColorButton = ({ getColorValue, buttonIndex }) => {
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth={1.5}
-          stroke="black"
+          stroke="white"
           className="w-10 h-10 "
         >
           <path

@@ -13,9 +13,7 @@ const ColorsRow = ({ guessColors }) => {
         guessColors.map((colorCode, index) => (
           <div
             key={index}
-            className={`h-8 w-8 rounded-full border border-black ${getColorClass(
-              colorCode
-            )}`}
+            className={`h-10 w-10 rounded-full ${getColorClass(colorCode)}`}
           ></div>
         ))}
     </div>

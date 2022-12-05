@@ -11,18 +11,26 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-yellow-600 to-gray-900 p-4 text-white text-center">
-      <h1 className="text-3xl text-center font-bold mb-4">Super Master Mind</h1>
-      <p>
-        Vous devrez retrouver une combinaison aléatoire de 5 couleurs en 12
-        tours maximum !
-      </p>
-      <p className="mb-12">Bonne chance 😉</p>
-      {isStarted ? (
-        <Game />
-      ) : (
-        <Button onClick={handleStartGame} text="Jouer !" />
-      )}
+    <div className="min-h-screen flex justify-center py-4 bg-gradient-to-br from-indigo-900 to-gray-700">
+      <div className="card bg-base-300 shadow-xl text-center max-w-xl">
+        <div className="card-body flex-initial">
+          <h1 className="text-3xl text-center font-bold mb-4 text-white">
+            🧠 SUPER MASTERMIND 🧠
+          </h1>
+          <p className="mb-6">
+            Vous devrez retrouver une combinaison aléatoire de 5 couleurs en 12
+            tours maximum ! Bonne chance 😉
+          </p>
+          {isStarted ? (
+            <>
+              <span className="border-t-2 border-gray-200/25 mb-6"></span>
+              <Game />
+            </>
+          ) : (
+            <Button onClick={handleStartGame} text="Jouer !" />
+          )}
+        </div>
+      </div>
     </div>
   );
 }

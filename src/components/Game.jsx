@@ -129,62 +129,63 @@ const Game = () => {
   };
 
   return (
-    <div className="max-w-lg mx-auto">
-      <div className="rounded-md bg-white p-4 mb-8">
-        {isWin ? (
-          <>
-            <h2 className="text-2xl font-bold mb-2 text-black">
-              Félicitations !
-            </h2>
-            <p className="text-black mb-4">
-              Vous avez trouvé la bonne combinaison en {round} tours.
-            </p>
-            <div className="mb-4 flex justify-center">
-              <ColorsRow guessColors={solCombinaison} />
-            </div>
-            <Button text="Rejouer ?" onClick={resetGame} />
-          </>
-        ) : isLost ? (
-          <>
-            <h2 className="text-2xl font-bold mb-2 text-black">
-              Vous avez perdu...
-            </h2>
-            <p className="text-black mb-4">
-              Vous n'avez pas trouvé la combinaison gagnante en 12 tours. La
-              solution était :
-            </p>
-            <div className="mb-4 flex justify-center">
-              <ColorsRow guessColors={solCombinaison} />
-            </div>
-            <Button text="Rejouer ?" onClick={resetGame} />
-          </>
-        ) : (
-          <>
-            <p className="mb-4 text-black">Tour {round}/12</p>
-            <div className="flex gap-2 justify-center mb-4">
-              <ColorButton getColorValue={getColorValue} buttonIndex={0} />
-              <ColorButton getColorValue={getColorValue} buttonIndex={1} />
-              <ColorButton getColorValue={getColorValue} buttonIndex={2} />
-              <ColorButton getColorValue={getColorValue} buttonIndex={3} />
-              <ColorButton getColorValue={getColorValue} buttonIndex={4} />
-            </div>
-            <Button text="Valider la combinaison" onClick={playRound} />
-          </>
-        )}
+    <>
+      <div className="card bg-base-200 mb-4">
+        <div className="card-body items-center">
+          {isWin ? (
+            <>
+              <h2 className="card-title mb-8">Félicitations ! 🎉🎉🎉</h2>
+              <p className="mb-4">
+                Vous avez trouvé la bonne combinaison en {round} tours.
+              </p>
+              <div className="mb-4 flex justify-center">
+                <ColorsRow guessColors={solCombinaison} />
+              </div>
+              <Button text="Rejouer ?" onClick={resetGame} />
+            </>
+          ) : isLost ? (
+            <>
+              <h2 className="card-title mb-8">Vous avez perdu ... 😔</h2>
+              <p className="mb-4">
+                Vous n'avez pas trouvé la combinaison gagnante en 12 tours. La
+                solution était :
+              </p>
+              <div className="mb-8 flex justify-center">
+                <ColorsRow guessColors={solCombinaison} />
+              </div>
+              <Button text="Rejouer ?" onClick={resetGame} />
+            </>
+          ) : (
+            <>
+              <p className="card-title mb-8">Tour {round}/12</p>
+              <div className="flex gap-2 justify-center mb-8">
+                <ColorButton getColorValue={getColorValue} buttonIndex={0} />
+                <ColorButton getColorValue={getColorValue} buttonIndex={1} />
+                <ColorButton getColorValue={getColorValue} buttonIndex={2} />
+                <ColorButton getColorValue={getColorValue} buttonIndex={3} />
+                <ColorButton getColorValue={getColorValue} buttonIndex={4} />
+              </div>
+              <Button text="Valider la combinaison" onClick={playRound} />
+            </>
+          )}
+        </div>
       </div>
-      <div>
-        {prevGuess &&
-          prevGuess.map((guess, index) => (
-            <GuessRow
-              key={index}
-              guess={guess}
-              round={prevGuess.length - index}
-              wellPlacedCount={guess.wellPlacedCount}
-              misplacedCount={guess.misplacedCount}
-            />
-          ))}
-      </div>
-    </div>
+      {prevGuess && prevGuess.length > 0 && (
+        <div className="card bg-base-200">
+          <div className="card-body">
+            {prevGuess.map((guess, index) => (
+              <GuessRow
+                key={index}
+                guess={guess}
+                round={prevGuess.length - index}
+                wellPlacedCount={guess.wellPlacedCount}
+                misplacedCount={guess.misplacedCount}
+              />
+            ))}
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
