@@ -30,7 +30,7 @@ const Game = () => {
 
   const startNewGame = useCallback(() => {
     const newSolution = generateSolution();
-    console.log("newSolution:", newSolution);
+    console.log("I see you cheating 👀 but here you go :", newSolution);
     setSolCombinaison(newSolution);
 
     const count = {};
