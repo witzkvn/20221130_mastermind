@@ -139,6 +139,9 @@ const Game = () => {
             <p className="text-black mb-4">
               Vous avez trouvé la bonne combinaison en {round} tours.
             </p>
+            <div className="mb-4 flex justify-center">
+              <ColorsRow guessColors={solCombinaison} />
+            </div>
             <Button text="Rejouer ?" onClick={resetGame} />
           </>
         ) : isLost ? (
