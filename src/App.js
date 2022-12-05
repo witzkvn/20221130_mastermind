@@ -11,7 +11,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen flex justify-center py-4 bg-gradient-to-br from-indigo-900 to-gray-700">
+    <div className="min-h-screen flex justify-center items-start py-4 bg-gradient-to-br from-indigo-800 to-cyan-700">
       <div className="card bg-base-300 shadow-xl text-center max-w-xl">
         <div className="card-body flex-initial">
           <h1 className="text-3xl text-center font-bold mb-4 text-white">
