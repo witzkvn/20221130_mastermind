@@ -130,27 +130,36 @@ const Game = () => {
 
   return (
     <>
-      <div className="card bg-base-200 mb-4">
-        <div className="card-body items-center">
+      <div
+        className={`card mb-4 ${
+          isWin
+            ? "bg-emerald-800 text-white"
+            : isLost
+            ? "bg-rose-800 text-white"
+            : "bg-base-200"
+        }`}
+      >
+        <div className="card-body items-center p-4 md:p-6">
           {isWin ? (
             <>
-              <h2 className="card-title mb-8">Félicitations ! 🎉🎉🎉</h2>
-              <p className="mb-4">
-                Vous avez trouvé la bonne combinaison en {round} tours.
+              <p className="text-3xl">🎉🎉🎉</p>
+              <h2 className="card-title text-3xl">Félicitations !</h2>
+              <p>Vous avez trouvé la bonne combinaison en</p>
+              <p className="font-bold text-black text-3xl mb-6">
+                {round} tour{round > 1 ? "s" : ""}
               </p>
-              <div className="mb-4 flex justify-center">
+              <div className="mb-6 flex justify-center">
                 <ColorsRow guessColors={solCombinaison} />
               </div>
               <Button text="Rejouer ?" onClick={resetGame} />
             </>
           ) : isLost ? (
             <>
-              <h2 className="card-title mb-8">Vous avez perdu ... 😔</h2>
-              <p className="mb-4">
-                Vous n'avez pas trouvé la combinaison gagnante en 12 tours. La
-                solution était :
-              </p>
-              <div className="mb-8 flex justify-center">
+              <p className="text-3xl">😔😔😔</p>
+              <h2 className="card-title text-3xl">Vous avez perdu ...</h2>
+              <p>Vous n'avez pas trouvé la combinaison gagnante en 12 tours.</p>
+              <p className="mb-6">La solution était :</p>
+              <div className="mb-6 flex justify-center">
                 <ColorsRow guessColors={solCombinaison} />
               </div>
               <Button text="Rejouer ?" onClick={resetGame} />
@@ -172,7 +181,7 @@ const Game = () => {
       </div>
       {prevGuess && prevGuess.length > 0 && (
         <div className="card bg-base-200">
-          <div className="card-body">
+          <div className="card-body p-4 md:p-6">
             {prevGuess.map((guess, index) => (
               <GuessRow
                 key={index}

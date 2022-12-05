@@ -12,10 +12,11 @@ function App() {
 
   return (
     <div className="min-h-screen flex justify-center items-start py-4 bg-gradient-to-br from-indigo-800 to-cyan-700">
-      <div className="card bg-base-300 shadow-xl text-center max-w-xl">
-        <div className="card-body flex-initial">
+      <div className="card bg-base-300 shadow-xl text-center max-w-sm md:max-w-xl">
+        <div className="card-body flex-initial p-4 md:p-6">
+          <p className="text-3xl">🧠🧠🧠</p>
           <h1 className="text-3xl text-center font-bold mb-4 text-white">
-            🧠 SUPER MASTERMIND 🧠
+            SUPER MASTERMIND
           </h1>
           <p className="mb-6">
             Vous devrez retrouver une combinaison aléatoire de 5 couleurs en 12
