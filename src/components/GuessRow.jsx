@@ -1,32 +1,25 @@
 import React from "react";
 import colors from "../utils/colors";
+import ColorsRow from "./ColorsRow";
 
-const GuessRow = ({ guess, round }) => {
-    const getColorClass = (colorCode) => {
-        const foundColor = colors.filter((col) => col.code === colorCode);
-        console.log(
-            "🚀 ~ file: GuessRow.jsx:7 ~ getColorClass ~ foundColor",
-            foundColor
-        );
-        return foundColor[0].color;
-    };
-
-    return (
-        <div className="flex mb-4 items-center">
-            <div className="mr-4">mp bp</div>
-            <div className="flex gap-1 mr-4">
-                {guess &&
-                    guess.map((colorCode) => (
-                        <div
-                            className={`h-8 w-8 rounded-full border border-black ${getColorClass(
-                                colorCode
-                            )}`}
-                        ></div>
-                    ))}
-            </div>
-            <div>{round}</div>
+const GuessRow = ({ guess, round, wellPlacedCount, misplacedCount }) => {
+  return (
+    <div className="flex mb-2 items-center justify-between border-2 border-black rounded-md bg-white">
+      <div className="mr-4 border-r-2 border-black">
+        <div className="bg-black h-6 w-6 flex justify-center items-center font-bold">
+          {wellPlacedCount}
         </div>
-    );
+        <div className="bg-white text-black h-6 w-6 flex justify-center items-center font-bold">
+          {misplacedCount}
+        </div>
+      </div>
+
+      {guess && <ColorsRow guessColors={guess.guessColors} />}
+      <div className="px-4 border-l-2 border-black text-black font-bold">
+        {round}
+      </div>
+    </div>
+  );
 };
 
 export default GuessRow;
